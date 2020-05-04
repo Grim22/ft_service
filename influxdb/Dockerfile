@@ -1,10 +1,11 @@
 FROM alpine
 
-RUN apk update && apk add vim
-RUN apk add openrc
-RUN apk add influxdb
+RUN apk add --no-cache openrc vim
+RUN apk add --no-cache influxdb
 
+COPY start.sh /tmp
+RUN chmod +x /tmp/start.sh
 
-#RUN rc-service influxdb start
+ENTRYPOINT [ "/tmp/start.sh" ]
 
 #config file: etc/influxdb.conf

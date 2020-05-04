@@ -1,10 +1,11 @@
 FROM alpine
 
-RUN apk update && apk add vim
-RUN apk add openrc
-RUN apk add mysql mysql-client
+RUN apk add --no-cache openrc
+RUN apk add --no-cache mysql mysql-client
 
+COPY start.sh /tmp
+RUN chmod +x /tmp/start.sh
 
-#RUN rc-service mariadb start
+ENTRYPOINT [ "/tmp/start.sh" ]
 
-#/etc/my.cnf.d/mariadb-server.cnf
+#docker run -dit --name mysql_cont -p 3306:3306 mysql (run en mode detach, possibilité de bash a l'intérieur avec exec)

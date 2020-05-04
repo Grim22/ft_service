@@ -1,12 +1,21 @@
 FROM alpine
 
-RUN apk update && apk add vim
-RUN apk add openrc
+RUN apk add --no-cache openrc vim
+
 #grafana package is in another repository: edge/testing. We need to add it to the list of reps
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk update
-RUN apk add grafana
+RUN apk add --no-cache grafana
 
-#RUN rc-service grafana start
+COPY start.sh /tmp
+RUN chmod +x /tmp/start.sh
 
-#config file il located at etc/grafana.ini
+ENTRYPOINT [ "/tmp/start.sh" ]
+
+#docker run -dit --name grafana_cont -p 3000:3000 grafana
+
+
+#config file located at etc/grafana.ini
+#init script: /etc/init.d/grafana
+#configuration file for init script: etc/conf.d/grafana
+#data: /var/lib/grafana
+    
