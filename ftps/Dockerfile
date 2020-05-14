@@ -16,4 +16,4 @@ RUN chmod +x /tmp/start.sh
 
 ENTRYPOINT [ "/tmp/start.sh" ]
 
-#docker run -dit --name ftps_cont -p 21:21 mysql /bin/sh
+#docker run -dit --name ftps_cont -p 21:21 ftps /bin/sh

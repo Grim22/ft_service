@@ -15,6 +15,7 @@ ENTRYPOINT [ "/tmp/start.sh" ]
 
 
 #config file located at etc/grafana.ini
+#default config: /usr/share/grafana/conf
 #init script: /etc/init.d/grafana
 #configuration file for init script: etc/conf.d/grafana
 #data: /var/lib/grafana
