@@ -6,6 +6,7 @@ RUN apk add --no-cache openrc vim
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 RUN apk add --no-cache grafana
 
+COPY datasources.yml /usr/share/grafana/conf/provisioning/datasources/
 COPY start.sh /tmp
 RUN chmod +x /tmp/start.sh
 

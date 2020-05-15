@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influxdb-deployment
+  labels:
+    app: influxdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: influxdb
+  template:
+    metadata:
+      labels:
+        app: influxdb
+        service: grafana
+    spec:
+      containers:
+      - name: influxdb
+        image: influxdb
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8086
