@@ -10,8 +10,6 @@ datasources:
     isdefault: true
     #editable: true
 
-    #mettre CLUSTERIP:8086
-    #url: http://10.103.217.12:8086
-    url: http://172.17.0.11:8086
-    #jsonData:
-      #httpMode: GET
+    url: http://${INFLUXDB_SERVICE_HOST}:8086
+    jsonData:
+      httpMode: GET

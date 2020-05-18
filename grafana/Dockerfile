@@ -12,12 +12,14 @@ RUN chmod +x /tmp/start.sh
 
 ENTRYPOINT [ "/tmp/start.sh" ]
 
-#docker run -dit --name grafana_cont -p 3000:3000 grafana
-
+#port: 3000
 
 #config file located at etc/grafana.ini
 #default config: /usr/share/grafana/conf
+#home_path: usr/share/grafana
 #init script: /etc/init.d/grafana
 #configuration file for init script: etc/conf.d/grafana
-#data: /var/lib/grafana
+
+#user: admin
+#pssword: admin
     
