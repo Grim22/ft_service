@@ -22,4 +22,7 @@ ENTRYPOINT [ "/tmp/start.sh" ]
 
 #user: admin
 #pssword: admin
+
+#ajouter et configuer ce dashboard (spécial docker):
+#https://grafana.com/grafana/dashboards/10585
     
