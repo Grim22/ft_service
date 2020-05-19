@@ -1,13 +1,13 @@
 FROM alpine
 
-# NGINX: pas à installer dans le container a priori: relier le container WP au container Nginx grace au docker compose
-# donc supprimer les lignes en rapport avec nginx
+# NGINX: pas à installer dans ce container !!
+# ici installé pour test
+# donc ensuite supprimer les lignes en rapport avec nginx
 
-
-#EXPOSE 80
 
 RUN apk add vim
 RUN apk add --no-cache nginx
+#packages indiqués sur la page https://wiki.alpinelinux.org/wiki/WordPress + php7-fpm (n'est pas dans la liste mais nécessaire à nginx)
 RUN apk add --no-cache lighttpd php7-fpm php7-common php7-iconv php7-json php7-gd php7-curl php7-xml php7-mysqli php7-imap php7-cgi fcgi php7-pdo php7-pdo_mysql php7-soap php7-xmlrpc php7-posix php7-mcrypt php7-gettext php7-ldap php7-ctype php7-dom
 
 RUN mkdir -p /run/nginx

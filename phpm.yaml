@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: phpm
 spec:
-  type: nodePort
+  type: NodePort
   selector:
     app: phpm
   ports:
