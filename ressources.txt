@@ -1,0 +1,2 @@
+Pour relancer un deployment après avoir changer l'image:
+kubectl rollout restart deployment/[Nom du deployment]
