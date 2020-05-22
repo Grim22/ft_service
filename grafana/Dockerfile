@@ -7,6 +7,10 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 RUN apk add --no-cache grafana
 
 COPY datasources.yml /usr/share/grafana/conf/provisioning/datasources/
+#commenté car ne marche pas et fait planter le container
+COPY dashboard.yml /usr/share/grafana/conf/provisioning/dashboards/
+COPY docker-dashboard.json /usr/share/grafana/conf/provisioning/dashboards
+
 COPY start.sh /tmp
 RUN chmod +x /tmp/start.sh
 
