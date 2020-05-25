@@ -7,9 +7,17 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 RUN apk add --no-cache grafana
 
 COPY datasources.yml /usr/share/grafana/conf/provisioning/datasources/
+
 #commenté car ne marche pas et fait planter le container
-COPY dashboard.yml /usr/share/grafana/conf/provisioning/dashboards/
-COPY docker-dashboard.json /usr/share/grafana/conf/provisioning/dashboards
+#bien prendre comme json celui obtenu en allant dans les settings depuis la GUI Grafana, après avoir importé le dashboard souhaité avec son uid
+#a chaque fois cela sort un nombre d'"iterations" différent (ligne 20 du json)
+#le container se lance bien, avec le graph (re-copier le json si ne marche pas), mais le dashboard fait tout planter au bout d'un moment
+#COPY dashboard.yml /usr/share/grafana/conf/provisioning/dashboards/
+#COPY docker-dashboard.json /usr/share/grafana/conf/provisioning/dashboards
+
+#fichier de configuration configuré pour que grafana fonctionne en reverse proxy derrière nginx
+#on n'a qu'un partie de settings: les autres sont set par défaut
+COPY grafana.ini /etc/grafana.ini
 
 COPY start.sh /tmp
 RUN chmod +x /tmp/start.sh

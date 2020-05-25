@@ -1,41 +1,46 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grafana-deployment
+  name: nginx-deployment
   labels:
-    app: grafana
+    app: nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: grafana
+      app: nginx
   template:
     metadata:
       labels:
-        app: grafana
+        app: nginx
     spec:
       containers:
-      - name: grafana
-        image: grafana
+      - name: nginx
+        image: nginx
         imagePullPolicy: Never
         ports:
-        - containerPort: 3000
+        - containerPort: 80
+          name: http
+        - containerPort: 443
+          name: https
 
 ---
   
 apiVersion: v1  
 kind: Service
 metadata:
-  name: grafana-service
+  name: nginx-service
 spec:
-  #type: NodePort
   type: ClusterIP
   selector:
-    app : grafana
+    app : nginx
   ports:
       # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
-    - targetPort: 3000
-      port: 3000
+    - targetPort: 80
+      port: 80
+      name: http
       # Optional field
       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
-      #nodePort: 3000
+    - targetPort: 443
+      port: 443
+      name: https
