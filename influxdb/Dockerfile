@@ -2,7 +2,6 @@ FROM alpine
 
 #edge repo for telegraf
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-#RUN apk add --no-cache openrc vim
 RUN apk add --no-cache influxdb
 RUN apk add --no-cache telegraf
 RUN apk add --no-cache openrc

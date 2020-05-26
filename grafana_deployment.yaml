@@ -20,6 +20,10 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 3000
+        env:
+        - name: MINIK_IP
+          value: $MINIK_IP
+
 
 ---
   

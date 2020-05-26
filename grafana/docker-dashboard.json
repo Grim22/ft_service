@@ -13,11 +13,11 @@
     ]
   },
   "description": "Docker Metrics with influx and Telegraf",
-  "editable": false,
+  "editable": true,
   "gnetId": 10585,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1590140568550,
+  "iteration": 1590419909972,
   "links": [],
   "panels": [
     {
@@ -1233,11 +1233,7 @@
   ],
   "schemaVersion": 22,
   "style": "dark",
-  "tags": [
-    "Docker",
-    "Telegraf",
-    "InfluxDB"
-  ],
+  "tags": [],
   "templating": {
     "list": [
       {
@@ -1326,8 +1322,8 @@
     ]
   },
   "timezone": "",
-  "title": "Docker Dashboard",
-  "uid": "iMowdtHZz",
+  "title": "Docker Dashboard Copy",
+  "uid": "cCdl3HkMz",
   "variables": {
     "list": []
   },
