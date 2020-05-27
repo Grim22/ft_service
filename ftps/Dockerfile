@@ -16,4 +16,9 @@ RUN chmod +x /tmp/start.sh
 
 ENTRYPOINT [ "/tmp/start.sh" ]
 
-#docker run -dit --name ftps_cont -p 21:21 ftps /bin/sh
+#Accès au serveur ftp via filezilla (serveur ftp): permet de tester que le ssl marche bien
+#via filezilla entrer MINIK_IP dans host et le port num: 30001
+#laisser en mode "anonymous"
+#Ou accès via navigateur: ftp://MINIK_IP:30001 (ne permet pas de tester le ssl)
+
+#TODO: tester si on peut bien telecharger des fichiers (il faudra peut être modifier le .conf)

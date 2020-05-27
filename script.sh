@@ -1,3 +1,17 @@
+#TODO:
+# faire marcher wordpress au démarrage (phase d'instalation qui plante)
+## probléme car php serveur un peu lent
+## problemes de login logout... (rewrite ?)
+## solution JN: copier la base de donnée sql une fois remplie, pour ne pas avoir à refaire l'instalation
+## problème: erreur sur la BDD de mon coté
+
+# script shell
+# mettre les bases de données dans des pv, s'assurer qu'on les retrouve en cas de crash/redemarage
+# tester telechargement de fichier sur serveur ftp
+# acces a nginx via ssh
+# dashboard grafana: 1 par service
+
+
 #!/bin/bash
 minikube start --driver=virtualbox --extra-config=apiserver.service-node-port-range=10-35000
 eval $(minikube docker-env)
@@ -15,3 +29,5 @@ export MINIK_IP=$(minikube ip)
 sed -i "s/\$MINIK_IP/$MINIK_IP/" grafana_deployment.yaml
 #set MINIK_IP in vsftpd.conf
 sed -i "s/\$MINIK_IP/$MINIK_IP/" ftps/vsftpd.conf
+#set MINIK_IP in wp-config.php 
+A FAIRE
