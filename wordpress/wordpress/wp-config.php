@@ -18,6 +18,20 @@
  * @package WordPress
  */
 
+
+/** set the site URL */
+define('WP_HOME','http://192.168.99.104/wordpress');
+define('WP_SITEURL','http://192.168.99.104/wordpress');
+
+/** Fix to get the dashboard working with the reverse proxy.*/
+$_SERVER['REQUEST_URI'] = str_replace("/wp-admin/", "/wordpress/wp-admin/",  $_SERVER['REQUEST_URI']);
+
+
+// if ( (!empty( $_SERVER['HTTP_X_FORWARDED_HOST'])) ||
+//       (!empty( $_SERVER['HTTP_X_FORWARDED_FOR'])) ) {
+//       $_SERVER['HTTPS'] = 'on';
+// } 
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'wordpress' );
@@ -36,7 +50,6 @@ define( 'DB_CHARSET', 'utf8mb4' );
 
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
-
 /**#@+
  * Authentication Unique Keys and Salts.
  *

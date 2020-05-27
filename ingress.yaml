@@ -2,8 +2,8 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
    name: ingress
-   #annotations:
-     #nginx.ingress.kubernetes.io/rewrite-target: /$1
+   annotations:
+     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   backend:
     serviceName: nginx-service
@@ -19,3 +19,16 @@ spec:
       #    backend:
       #      serviceName: nginx-service
       #      servicePort: 443
+       - path: /wordpress/(.*)
+         backend:
+           serviceName: wp-service
+           servicePort: 5500
+       - path: /grafana/(.*)
+         backend:
+           serviceName: grafana-service
+           servicePort: 3000
+       - path: /phpm/(.*)
+         backend:
+           serviceName: phpm-service
+           servicePort: 5000
+           

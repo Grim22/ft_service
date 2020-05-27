@@ -154,8 +154,11 @@ $cfg['SaveDir'] = '';
  * in the doc/ folder or at <https://docs.phpmyadmin.net/>.
  */
 
+//$cfg['PmaAbsoluteUri'] = 'http://192.168.99.103/phpm/';
+
 $i++;
 $cfg['Servers'][$i]['host'] = 'mysql'; //provide hostname and port if other than default
 $cfg['Servers'][$i]['user'] = 'user';   //user name for your remote server
 $cfg['Servers'][$i]['password'] = 'password';  //password
 $cfg['Servers'][$i]['auth_type'] = 'config';       // keep it as config
+
