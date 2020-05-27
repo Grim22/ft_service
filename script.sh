@@ -7,13 +7,11 @@ minikube addons enable dashboard
 #cmd to access dashboard
 minikube dashboard
 
-#1) put minik_ip into a global variable (used in grafana.ini)
+#1) put minik_ip into a global variable
 export MINIK_IP=$(minikube ip)
-#2) export MINIK_IP into an environment variable of grafana containers
-#---->in influxdb_deployment, replacer les variables globales par leurs valeurs. puis apply le .YAML
-envsubst < influxdb_deployment.yaml | kubectl apply -f -
-#OU FAIRE
-envsubst < influxdb_deployment.tmp > influxdb_deployment.yaml
-#et faire apply dans un deuxième temps
-#---->AUTRE option: utiliser SED:
+#2) set MINIK_IP where it needs to: 
+#export MINIK_IP into an environment variable of grafana containers
+#env variable will be used in grafana.ini
 sed -i "s/\$MINIK_IP/$MINIK_IP/" grafana_deployment.yaml
+#set MINIK_IP in vsftpd.conf
+sed -i "s/\$MINIK_IP/$MINIK_IP/" ftps/vsftpd.conf
