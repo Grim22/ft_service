@@ -1,3 +1,7 @@
 #!/bin/sh
+echo "Starting Nginx !"
+nginx
+echo "Starting Php"
+/usr/sbin/php-fpm7
 
-php -S 0.0.0.0:5500 -t /var/www/localhost/htdocs/
+tail -f /dev/null
