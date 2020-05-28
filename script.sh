@@ -13,7 +13,7 @@
 
 
 #!/bin/bash
-minikube start --driver=virtualbox --extra-config=apiserver.service-node-port-range=10-35000
+minikube start --driver=virtualbox
 eval $(minikube docker-env)
 #dashboard and ingress
 minikube addons enable ingress
@@ -30,4 +30,4 @@ sed -i "s/\$MINIK_IP/$MINIK_IP/" grafana_deployment.yaml
 #set MINIK_IP in vsftpd.conf
 sed -i "s/\$MINIK_IP/$MINIK_IP/" ftps/vsftpd.conf
 #set MINIK_IP in wp-config.php 
-A FAIRE
+sed -i "s/\$MINIK_IP/$MINIK_IP/" wordpress/wp-config.php
