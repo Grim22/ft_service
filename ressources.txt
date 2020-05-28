@@ -1,6 +1,9 @@
 Pour relancer un deployment après avoir changer l'image:
 kubectl rollout restart deployment/[Nom du deployment]
 
-https://grafana.com/grafana/dashboards/10585
+cmd to access dashboard
+minikube dashboard
 
-accès en ssl au nginx qui ne fonctionne pas: 
+ssh -p 30010 root@MINIK_IP to connect en ssh
+-> port specified in nginx.yaml: 22 not working (blocked ?)
+-> access via nodeport
