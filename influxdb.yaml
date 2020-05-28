@@ -12,6 +12,20 @@ spec:
 
 ---
 
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: influxdb-volume-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  # volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 10Gi
+  
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -39,6 +53,11 @@ spec:
         ports:
         - containerPort: 8086
         volumeMounts:
-          - mountPath: "/var/run/docker.sock"
-            name: docker
+          - name: influxdb-volume
+            mountPath: /var/lib/influxdb
+      volumes:
+      - name: influxdb-volume
+        persistentVolumeClaim:
+          claimName: influxdb-volume-claim
+
 
