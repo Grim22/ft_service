@@ -1,40 +1,21 @@
-FROM alpine
+FROM alpine:latest
 
-RUN apk add --no-cache openrc vim
+RUN apk add --no-cache libc6-compat
 
-#grafana package is in another repository: edge/testing. We need to add it to the list of reps
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk add --no-cache grafana
+RUN wget https://dl.grafana.com/oss/release/grafana-7.0.1.linux-amd64.tar.gz
+RUN tar -zxvf grafana-7.0.1.linux-amd64.tar.gz \
+&& rm grafana-7.0.1.linux-amd64.tar.gz
 
-COPY datasources.yml /usr/share/grafana/conf/provisioning/datasources/
+COPY defaults.ini /grafana-7.0.1/conf
+# COPY ./grafana.db ./grafana-7.0.1/data/
 
-#commenté car ne marche pas et fait planter le container
-#bien prendre comme json celui obtenu en allant dans les settings depuis la GUI Grafana, après avoir importé le dashboard souhaité avec son uid
-#a chaque fois cela sort un nombre d'"iterations" différent (ligne 20 du json)
-#le container se lance bien, avec le graph (re-copier le json si ne marche pas), mais le dashboard fait tout planter au bout d'un moment
-#COPY dashboard.yml /usr/share/grafana/conf/provisioning/dashboards/
-#COPY docker-dashboard.json /usr/share/grafana/conf/provisioning/dashboards
+COPY start.sh /usr/local/bin/
+COPY datasources.yml /grafana-7.0.1/conf/provisioning/datasources/
+COPY dashboards.yaml /grafana-7.0.1/conf/provisioning/dashboards/
+COPY docker-dashboard.json /grafana-7.0.1/data/
 
-#fichier de configuration configuré pour que grafana fonctionne en reverse proxy derrière nginx
-#on n'a qu'un partie de settings: les autres sont set par défaut
-COPY grafana.ini /etc/grafana.ini
+RUN chmod +x /usr/local/bin/start.sh
 
-COPY start.sh /tmp
-RUN chmod +x /tmp/start.sh
+EXPOSE 3000
 
-ENTRYPOINT [ "/tmp/start.sh" ]
-
-#port: 3000
-
-#config file located at etc/grafana.ini
-#default config: /usr/share/grafana/conf
-#home_path: usr/share/grafana
-#init script: /etc/init.d/grafana
-#configuration file for init script: etc/conf.d/grafana
-
-#user: admin
-#pssword: admin
-
-#ajouter et configuer ce dashboard (spécial docker):
-#https://grafana.com/grafana/dashboards/10585
-    
+ENTRYPOINT ["start.sh"]

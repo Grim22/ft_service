@@ -17,7 +17,7 @@
   "gnetId": 10585,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1590419909972,
+  "iteration": 1590768706730,
   "links": [],
   "panels": [
     {
@@ -30,6 +30,12 @@
         "#d44a3a"
       ],
       "datasource": "telegraf",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -141,6 +147,12 @@
         "#bf1b00"
       ],
       "datasource": "telegraf",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -257,6 +269,12 @@
         "#bf1b00"
       ],
       "datasource": "telegraf",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -366,6 +384,12 @@
     {
       "columns": [],
       "datasource": "telegraf",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fontSize": "100%",
       "gridPos": {
         "h": 5,
@@ -496,7 +520,7 @@
       ],
       "title": "Docker Status",
       "transform": "table",
-      "type": "table"
+      "type": "table-old"
     },
     {
       "aliasColors": {},
@@ -505,6 +529,12 @@
       "dashes": false,
       "datasource": "telegraf",
       "decimals": 0,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
@@ -666,6 +696,12 @@
       "dashes": false,
       "datasource": "telegraf",
       "decimals": 0,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
@@ -829,6 +865,12 @@
       "dashes": false,
       "datasource": "telegraf",
       "decimals": 0,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
@@ -1033,6 +1075,12 @@
       "dashes": false,
       "datasource": "telegraf",
       "decimals": 0,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
@@ -1231,9 +1279,13 @@
       }
     }
   ],
-  "schemaVersion": 22,
+  "schemaVersion": 25,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "Docker",
+    "Telegraf",
+    "InfluxDB"
+  ],
   "templating": {
     "list": [
       {
@@ -1247,7 +1299,6 @@
         "definition": "",
         "hide": 0,
         "includeAll": true,
-        "index": -1,
         "label": "Host",
         "multi": true,
         "name": "Host",
@@ -1274,7 +1325,6 @@
         "definition": "",
         "hide": 0,
         "includeAll": true,
-        "index": -1,
         "label": "Docker_Stack",
         "multi": true,
         "name": "Docker_Stack",
@@ -1298,7 +1348,6 @@
   },
   "timepicker": {
     "refresh_intervals": [
-      "5s",
       "10s",
       "30s",
       "1m",
@@ -1322,10 +1371,7 @@
     ]
   },
   "timezone": "",
-  "title": "Docker Dashboard Copy",
-  "uid": "cCdl3HkMz",
-  "variables": {
-    "list": []
-  },
+  "title": "Docker Dashboard",
+  "uid": "iMowdtHZz",
   "version": 1
 }
