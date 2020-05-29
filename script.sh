@@ -10,9 +10,11 @@ minikube addons enable dashboard
 
 #1) put minik_ip into a global variable
 export MINIK_IP=$(minikube ip)
+
+## ATTENTION: vérifier que dans les endroits où l'on veut changer la minik_ip, l'ip n'est pas rentrée en dur 
 #2) set MINIK_IP where it needs to: 
 #export MINIK_IP into an environment variable of grafana containers. Env variable will be used in grafana.ini
-sed -i "s/\$MINIK_IP/$MINIK_IP/" grafana_deployment.yaml
+sed -i "s/\$MINIK_IP/$MINIK_IP/" grafana.yaml
 #set MINIK_IP in vsftpd.conf
 sed -i "s/\$MINIK_IP/$MINIK_IP/" ftps/vsftpd.conf
 #set MINIK_IP in wp-config.php 

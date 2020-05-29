@@ -20,8 +20,8 @@
 
 
 /** set the site URL */
-define('WP_HOME','http://192.168.99.105/wordpress');
-define('WP_SITEURL','http://192.168.99.105/wordpress');
+define('WP_HOME','http://$MINIK_IP/wordpress');
+define('WP_SITEURL','http://$MINIK_IP/wordpress');
 
 /** Fix to get the dashboard working with the reverse proxy.*/
 $_SERVER['REQUEST_URI'] = str_replace("/wp-admin/", "/wordpress/wp-admin/",  $_SERVER['REQUEST_URI']);

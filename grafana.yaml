@@ -22,7 +22,7 @@ spec:
         - containerPort: 3000
         env:
         - name: MINIK_IP
-          value: 192.168.99.105
+          value: $MINIK_IP
 
 
 ---
