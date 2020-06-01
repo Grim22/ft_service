@@ -2,8 +2,8 @@
 
 # script shell
 # tester telechargement de fichier sur serveur ftp
-# acces a nginx via ssh
-# dashboard grafana: 1 par service
-# "All your containers must restart in case of a crash or stop."
+# "All your containers must restart in case of a crash or stop.": verifier
+# wordpress doit comporter plusieurs users et un admin
+# reouvrir les node port (vérifier que fonctionnent)
 
 

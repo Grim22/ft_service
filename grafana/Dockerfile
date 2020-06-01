@@ -1,3 +1,6 @@
+# essai avec openrc: installe la version 6, sur lequel le provisionning du dashboard ne marche pas bien
+# d'où la méthode utilisée ci-dessous  
+
 FROM alpine:latest
 
 RUN apk add --no-cache libc6-compat
