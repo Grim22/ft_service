@@ -2,9 +2,9 @@
 apiVersion: 1
 
 providers:
-- name: 'Docker'
+- name: 'Docker dash'
   orgId: 1
-  folder: :''
+  folder: ''
   type: file
   disableDeletion: true
   editable: true
