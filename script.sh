@@ -25,7 +25,7 @@ eval $(minikube docker-env)
 
 ## ATTENTION a bien lancer grafana APRES influxdb car grafana a besoin de connaitre l'IP du service influxdb (est exporté automatiquement dans les variables d'env)
 echo ">>>>>>>>> buiding images"
-services=(influxdb grafana nginx)
+services=(mysql wordpress phpmyadmin influxdb grafana nginx ftps)
 for service in ${services[*]}
 do
 cd $service
