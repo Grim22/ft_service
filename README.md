@@ -1,6 +1,6 @@
 <h1>ft_service</h1>
 <h2>Guidelines</h2>
-<p>This is a System Administration and Networking project</p>
+<p>This is a System Administration and Networking project on school 42 curses</p>
 <p>The project consists of setting up an infrastructure of different services, using Kubernetes <br />You will need to set up a multi-service cluster.<br />Each service will have to run in a dedicated container.<br />Containers have to be build using Alpine Linux.<br />You will have to build yourself the images that you will use. It is forbidden to take<br />already build images.</p>
 <p>You will also have to set up:</p>
 <p style="padding-left: 30px;">&bull; The Kubernetes web dashboard. This will help you manage your cluster.</p>
