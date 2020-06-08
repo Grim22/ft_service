@@ -80,5 +80,5 @@
 <h3>Docker</h3>
 <p><a href="https://stackoverflow.com/questions/7248031/meaning-of-dollar-question-mark-in-shell-scripts">https://stackoverflow.com/questions/7248031/meaning-of-dollar-question-mark-in-shell-scripts</a></p>
 <h3>Influxdb</h3>
-<h3>Mysql</h3>
+<h3>Mysqlb</h3>
 <h3>Phpmyadmin</h3>
