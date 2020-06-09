@@ -3,12 +3,13 @@ kind: Service
 metadata:
   name: phpm-service
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: phpm
   ports:
     - targetPort: 5000
       port: 5000
+      nodePort: 5000
 
 ---
 

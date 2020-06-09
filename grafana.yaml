@@ -28,8 +28,7 @@ kind: Service
 metadata:
   name: grafana-service
 spec:
-  #type: NodePort
-  type: ClusterIP
+  type: NodePort
   selector:
     app : grafana
   ports:
@@ -38,4 +37,4 @@ spec:
       port: 3000
       # Optional field
       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
-      #nodePort: 3000
+      nodePort: 3000

@@ -3,13 +3,13 @@ kind: Service
 metadata:
   name: wp-service
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: wp
   ports:
     - targetPort: 5500
       port: 5500
-      #nodePort: 30001
+      nodePort: 5500
 
 ---
 

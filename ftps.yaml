@@ -9,7 +9,7 @@ spec:
   ports:
     - name: ftps
       port: 21
-      nodePort: 30001
+      nodePort: 21
     - name: ftps-passive
       port: 30020
       nodePort: 30020

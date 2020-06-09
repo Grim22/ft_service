@@ -5,7 +5,7 @@
 #install openssh-client if not installed
 
 echo ">>>>>>>>> starting minikube"
-minikube start --driver=docker
+minikube start --driver=docker --extra-config=apiserver.service-node-port-range=10-35000
 #dashboard and ingress
 minikube addons enable ingress
 minikube addons enable dashboard
@@ -20,11 +20,13 @@ export MINIK_IP="$(kubectl get node -o=custom-columns='DATA:status.addresses[0].
 ## ATTENTION: vérifier que dans les endroits où l'on veut changer la minik_ip, l'ip n'est pas rentrée en dur 
 #2) set MINIK_IP where it needs to: 
 #in grafana.ini
-sed -i "s/\$MINIK_IP/$MINIK_IP/" grafana/defaults.ini
+#sed -i "s/\$MINIK_IP/$MINIK_IP/" grafana/defaults.ini
 #set MINIK_IP in vsftpd.conf
-sed -i "s/\$MINIK_IP/$MINIK_IP/" ftps/vsftpd.conf
+#sed -i "s/\$MINIK_IP/$MINIK_IP/" ftps/vsftpd.conf
 #set MINIK_IP in wp-config.php 
-sed -i "s/\$MINIK_IP/$MINIK_IP/" wordpress/wp-config.php
+#sed -i "s/\$MINIK_IP/$MINIK_IP/" wordpress/wp-config.php
+#set MINIK_IP in nginx index 
+#sed -i "s/\$MINIK_IP/$MINIK_IP/" nginx/index.html
 
 ##VERIFIER QUE CA MARCHE BIEN
 eval $(minikube docker-env)
