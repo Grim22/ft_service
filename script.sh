@@ -1,15 +1,24 @@
 #!/bin/bash
 
+# For some reason, by default, on 42's VM you can't run Docker without sudo. 
+# And Minikube will not work if that's the case. So let's fix that!
+#cf https://www.notion.so/Ft_services-VM-852d4f9b0d9a42c1a2de921e4a2ac417
+newgrp docker
+
 #install openssh-client if not installed
 
 echo ">>>>>>>>> starting minikube"
-minikube start --driver=virtualbox
+minikube start --driver=docker
 #dashboard and ingress
 minikube addons enable ingress
 minikube addons enable dashboard
 
 #1) put minik_ip into a global variable
-export MINIK_IP=$(minikube ip)
+#export MINIK_IP = $(minikube ip)
+
+#above line does not work sometimes with driver=docker, as minikube ip would return 127.0.0.1. Corrected by using the line below to get the real minikube ip
+export MINIK_IP="$(kubectl get node -o=custom-columns='DATA:status.addresses[0].address' | sed -n- 2p)"
+
 
 ## ATTENTION: vérifier que dans les endroits où l'on veut changer la minik_ip, l'ip n'est pas rentrée en dur 
 #2) set MINIK_IP where it needs to: 
