@@ -4,10 +4,6 @@ kubectl rollout restart deployment/[Nom du deployment]
 cmd to access dashboard
 minikube dashboard
 
-ssh -p 30010 root@MINIK_IP to connect en ssh
--> port specified in nginx.yaml: 22 not working (blocked ?)
--> access via nodeport
-
 GRAFANA
 Si le dashboard grafana n'apparait pas tt de suite, aller sur l'icon SEARCH (le '+') et revenir
 login: ADMIN
