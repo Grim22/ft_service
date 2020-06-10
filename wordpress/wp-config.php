@@ -20,11 +20,11 @@
 
 
 /** set the site URL */
-define('WP_HOME','http://$MINIK_IP/wordpress');
-define('WP_SITEURL','http://$MINIK_IP/wordpress');
+//define('WP_HOME','http://$MINIK_IP/wordpress');
+//define('WP_SITEURL','http://$MINIK_IP/wordpress');
 
 /** Fix to get the dashboard working with the reverse proxy.*/
-$_SERVER['REQUEST_URI'] = str_replace("/wp-admin/", "/wordpress/wp-admin/",  $_SERVER['REQUEST_URI']);
+//$_SERVER['REQUEST_URI'] = str_replace("/wp-admin/", "/wordpress/wp-admin/",  $_SERVER['REQUEST_URI']);
 
 
 // if ( (!empty( $_SERVER['HTTP_X_FORWARDED_HOST'])) ||

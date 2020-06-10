@@ -25,8 +25,10 @@ export MINIK_IP="$(kubectl get node -o=custom-columns='DATA:status.addresses[0].
 #sed -i "s/\$MINIK_IP/$MINIK_IP/" ftps/vsftpd.conf
 #set MINIK_IP in wp-config.php 
 #sed -i "s/\$MINIK_IP/$MINIK_IP/" wordpress/wp-config.php
-#set MINIK_IP in nginx index 
-#sed -i "s/\$MINIK_IP/$MINIK_IP/" nginx/index.html
+#set MINIK_IP in nginx index and in wordpress.sql
+sed -i "s/\$MINIK_IP/$MINIK_IP/" nginx/index.html
+sed -i "s/\$MINIK_IP/$MINIK_IP/" mysql/wordpress.sql
+
 
 ##VERIFIER QUE CA MARCHE BIEN
 eval $(minikube docker-env)
@@ -48,5 +50,5 @@ kubectl apply -f $service.yaml
 done
 kubectl apply -f ingress.yaml
 
-
+echo ">>>>>>>>>> access $MINIK_IP (minikube ip)"
 #build images

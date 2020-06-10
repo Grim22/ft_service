@@ -9,7 +9,7 @@ spec:
   ports:
     - targetPort: 5500
       port: 5500
-      nodePort: 5500
+      nodePort: 5050
 
 ---
 
