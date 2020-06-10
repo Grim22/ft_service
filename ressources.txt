@@ -1,10 +1,5 @@
 Pour relancer un deployment après avoir changer l'image:
 kubectl rollout restart deployment/[Nom du deployment]
 
-cmd to access dashboard
-minikube dashboard
-
 GRAFANA
 Si le dashboard grafana n'apparait pas tt de suite, aller sur l'icon SEARCH (le '+') et revenir
-login: ADMIN
-passwd: ADMIN
