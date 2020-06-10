@@ -4,6 +4,13 @@
 
 #install openssh-client if not installed
 
+docker ps &> /dev/null
+if [ $? != 0 ]
+then
+	echo -e ">>>>>> user doesn't have permission on docker. Please run: \nsudo usermod -aG docker $(whoami) \nthen restart your terminal and run: \n newgrp docker"
+	exit
+fi
+
 echo ">>>>>>>>> starting minikube"
 minikube start --driver=docker --extra-config=apiserver.service-node-port-range=10-35000
 #dashboard and ingress
