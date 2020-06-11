@@ -23,6 +23,12 @@ spec:
           name: http
         - containerPort: 443
           name: https
+        livenessProbe:
+          exec:
+            command:
+            - /usr/local/bin/liveness.sh
+          initialDelaySeconds: 3
+          periodSeconds: 3
 
 ---
   

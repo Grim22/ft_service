@@ -12,6 +12,5 @@ chown root:root /var/run/docker.sock
 chmod 666 /var/run/docker.sock
 ###comprendre pourquoi cela ne suffit pas de faire un chown root:root, en gardant le chmod initial (660)
 
-
 echo "all set !"
 tail -f /dev/null

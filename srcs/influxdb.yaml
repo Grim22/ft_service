@@ -55,6 +55,13 @@ spec:
             mountPath: /var/lib/influxdb
           - name: docker
             mountPath: "/var/run/docker.sock"
+        livenessProbe:
+          exec:
+            command:
+            - /tmp/liveness.sh
+          initialDelaySeconds: 3
+          periodSeconds: 3
+
       volumes:
       - name: influxdb-volume
         persistentVolumeClaim:

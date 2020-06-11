@@ -24,6 +24,9 @@ COPY nginx-selfsigned.crt /etc/ssl/certs
 COPY start.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/start.sh
 
+COPY liveness.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/liveness.sh
+
 ENTRYPOINT ["/usr/local/bin/start.sh", "-g", "daemon off;"]
 #pour run run -dit --name nginx_cont -p 80:80 -p 443:443 nginx
 

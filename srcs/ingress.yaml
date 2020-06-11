@@ -15,20 +15,20 @@ spec:
          backend:
            serviceName: nginx-service
            servicePort: 80
-      #  - path: /
+       - path: /
+         backend:
+           serviceName: nginx-service
+           servicePort: 443
+      #  - path: /wordpress/(.*)
       #    backend:
-      #      serviceName: nginx-service
-      #      servicePort: 443
-       - path: /wordpress/(.*)
-         backend:
-           serviceName: wp-service
-           servicePort: 5500
-       - path: /grafana/(.*)
-         backend:
-           serviceName: grafana-service
-           servicePort: 3000
-       - path: /phpm/(.*)
-         backend:
-           serviceName: phpm-service
-           servicePort: 5000
+      #      serviceName: wp-service
+      #      servicePort: 5500
+      #  - path: /grafana/(.*)
+      #    backend:
+      #      serviceName: grafana-service
+      #      servicePort: 3000
+      #  - path: /phpm/(.*)
+      #    backend:
+      #      serviceName: phpm-service
+      #      servicePort: 5000
            

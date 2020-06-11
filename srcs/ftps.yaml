@@ -39,4 +39,10 @@ spec:
         ports:
         - containerPort: 21
         - containerPort: 30020
-
+        livenessProbe:
+          exec:
+            command:
+            - pgrep
+            - vsftpd
+          initialDelaySeconds: 3
+          periodSeconds: 3

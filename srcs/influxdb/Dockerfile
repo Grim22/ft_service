@@ -10,6 +10,9 @@ COPY start.sh /tmp
 COPY telegraf.conf /etc
 RUN chmod +x /tmp/start.sh
 
+COPY liveness.sh /tmp
+RUN chmod +x /tmp/liveness.sh
+
 ENTRYPOINT [ "/tmp/start.sh" ]
 
 #INFLUXDB
